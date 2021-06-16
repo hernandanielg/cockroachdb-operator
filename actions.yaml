@@ -1,0 +1,7 @@
+# Copyright 2021 Hernan Garcia
+# See LICENSE file for licensing details.
+#
+# Learn more about actions at: https://juju.is/docs/sdk/actions
+
+init:
+  description: Initializes the cockroachdb cluster

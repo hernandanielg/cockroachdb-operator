@@ -1,0 +1,30 @@
+# Copyright 2021 Hernan Garcia
+# See LICENSE file for licensing details.
+name: cockroachdb-operator
+description: |
+  CockroachDB it’s a distributed relational database, 
+  it’s written in Go and it’s cross-platform (Runs on Windows, Mac and Linux)
+summary: |
+  CockroachDB charmed operator for Kubernetes
+
+containers:
+  cockroachdb:
+    resource: cockroachdb-image
+    mounts:
+      - storage: data
+        location: /cockroach/cockroach-data
+
+storage:
+  data:
+    type: filesystem
+    description: cockroachdb node persistent data
+    minimum-size: 10GiB
+
+resources:
+  cockroachdb-image:
+    type: oci-image
+    description: OCI image for cockroachdb
+
+requires:
+  ingress:
+    interface: ingress
